@@ -1,6 +1,6 @@
 ## Nuxt 3 starter template
 
-_This is a starter template for Nuxt 3 projects, it is already configured with the following:_
+_This is a starter template for Nuxt 3 projects, configurated with a bunch of useful plugins like: husky, eslint, commitlint, commitizen, lint staged and others._
 
 ### Project info:
 
