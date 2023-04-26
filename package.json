@@ -4,26 +4,26 @@
 	"dependencies": {
 		"@commitlint/cli": "^17.6.1",
 		"@commitlint/config-conventional": "^17.6.1",
-		"@pinia/nuxt": "^0.4.8",
-		"pinia": "^2.0.34"
+		"@pinia/nuxt": "^0.4.9",
+		"pinia": "^2.0.35"
 	},
 	"devDependencies": {
 		"@nuxtjs/eslint-config-typescript": "^12.0.0",
 		"@pinia-plugin-persistedstate/nuxt": "^1.1.1",
-		"@unocss/eslint-config": "^0.51.4",
-		"@unocss/nuxt": "^0.51.4",
-		"@unocss/preset-rem-to-px": "^0.51.4",
+		"@unocss/eslint-config": "^0.51.8",
+		"@unocss/nuxt": "^0.51.8",
+		"@unocss/preset-rem-to-px": "^0.51.8",
 		"commitizen": "^4.3.0",
 		"cz-conventional-changelog": "^3.3.0",
-		"eslint": "^8.38.0",
+		"eslint": "^8.39.0",
 		"eslint-config-prettier": "^8.8.0",
 		"eslint-plugin-prettier": "^4.2.1",
-		"husky": "^8.0.0",
-		"lint-staged": "^13.2.1",
-		"nuxt": "^3.4.1",
-		"prettier": "^2.8.6",
+		"husky": "^8.0.3",
+		"lint-staged": "^13.2.2",
+		"nuxt": "^3.4.2",
+		"prettier": "^2.8.8",
 		"prettier-plugin-tailwindcss": "^0.2.7",
-		"unocss": "^0.51.4"
+		"unocss": "^0.51.8"
 	},
 	"overrides": {
 		"vue": "latest"
