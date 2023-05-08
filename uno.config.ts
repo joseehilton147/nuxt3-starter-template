@@ -22,6 +22,17 @@ export default defineConfig({
 			lg: '992px',
 			xl: '1200px',
 		},
+		colors: {
+			global: {
+				alert: {
+					DEFAULT: '#9b55fd', // bg-global-alert
+					success: '#56ca00', // bg-global-alert-success
+					info: '#16B1FF', // bg-global-alert-info
+					warning: '#FFB400', // bg-global-alert-warning
+					danger: '#FF4C51', // bg-global-alert-danger
+				},
+			},
+		},
 	},
 	postprocess: util => {
 		if (util.selector && typeof util.selector === 'string') {

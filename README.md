@@ -27,21 +27,27 @@ _This is a starter template for Nuxt 3 projects, configurated with a bunch of us
 -   **Plugins**:
 
     -   [Prettier](https://prettier.io/)
+
         -   Version 2.8.6
 
     -   [ESLint](https://eslint.org/)
+
         -   Version 8.38.0
 
     -   [Husky](https://typicode.github.io/husky/#/)
+
         -   Version 8.0.0
 
     -   [Lint Staged](https://github.com/okonet/lint-staged)
+
         -   Version 13.2.1
 
     -   [Commitlint](https://commitlint.js.org/#/)
+
         -   Version 17.6.1
 
     -   [Commitizen](https://commitizen-tools.github.io/commitizen/)
+
         -   Version 4.3.0
 
     -   [Pinia](https://pinia.esm.dev/)
