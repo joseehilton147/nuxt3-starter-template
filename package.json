@@ -4,7 +4,7 @@
 	"dependencies": {
 		"@commitlint/cli": "^17.6.3",
 		"@commitlint/config-conventional": "^17.6.3",
-		"@pinia/nuxt": "^0.4.9",
+		"@pinia/nuxt": "^0.4.10",
 		"pinia": "^2.0.35"
 	},
 	"devDependencies": {
