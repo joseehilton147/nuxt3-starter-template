@@ -24,13 +24,7 @@ export default defineConfig({
 		},
 		colors: {
 			global: {
-				alert: {
-					DEFAULT: '#9b55fd', // bg-global-alert
-					success: '#56ca00', // bg-global-alert-success
-					info: '#16B1FF', // bg-global-alert-info
-					warning: '#FFB400', // bg-global-alert-warning
-					danger: '#FF4C51', // bg-global-alert-danger
-				},
+				DEFAULT: '#F0F2F9', // bg-global
 			},
 		},
 	},
