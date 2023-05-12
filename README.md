@@ -30,15 +30,15 @@
 
 -   **URL de acesso back-end API**:
 
-    -   Produção:
-    -   Homologação:
-    -   Desenvolvimento:
+    -   Produção: [https://dummyjson.com](https://dummyjson.com)
+    -   Homologação: [https://dummyjson.com](https://dummyjson.com)
+    -   Desenvolvimento: [https://dummyjson.com](https://dummyjson.com)
 
 -   **URL de acesso Swagger**:
 
-    -   Produção:
-    -   Homologação:
-    -   Desenvolvimento:
+    -   Produção: [https://dummyjson.com/docs](https://dummyjson.com/docs)
+    -   Homologação: [https://dummyjson.com/docs](https://dummyjson.com/docs)
+    -   Desenvolvimento: [https://dummyjson.com/docs](https://dummyjson.com/docs)
 
 -   **Versão do projeto**:
     -   Produção:

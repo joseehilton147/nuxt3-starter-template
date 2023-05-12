@@ -14,6 +14,7 @@ module.exports = {
 		'no-console': ['error', {allow: ['error']}],
 		'@unocss/order': 'off',
 		'no-unused-expressions': 'off',
+		'vue/no-multiple-template-root': 'off',
 		'prettier/prettier': [
 			'error',
 			{

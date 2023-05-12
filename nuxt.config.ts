@@ -38,7 +38,7 @@ export default defineNuxtConfig({
 
 	runtimeConfig: {
 		public: {
-			API_URL: process.env.NUXT_PUBLIC_API,
+			API_URL: process.env.NUXT_PUBLIC_API_URL,
 			USE_PROXY: process.env.ENVIROMENT === 'dev',
 		},
 	},
@@ -46,7 +46,7 @@ export default defineNuxtConfig({
 	proxy: {
 		proxies: {
 			'/api': {
-				target: process.env.NUXT_PUBLIC_API,
+				target: process.env.NUXT_PUBLIC_API_URL,
 				changeOrigin: true,
 				rewrite: (path: any) => path.replace(/^\/api/, ''),
 			},

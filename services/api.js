@@ -1,9 +1,18 @@
 import axios from 'axios'
+import {useApiStore} from '@/services/api-service'
 
-const api = axios.create()
+const api = axios.create({
+	baseUrl: '',
+})
 
 api.interceptors.request.use(
 	config => {
+		const apiStore = useApiStore()
+
+		const payload = apiStore.getPayload
+
+		if (payload) config.headers.Authorization = `Bearer ${apiStore.getToken}`
+
 		return config
 	},
 	error => {
