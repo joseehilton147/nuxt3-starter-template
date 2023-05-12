@@ -1,4 +1,4 @@
-## Pernambucanas Pfins
+## Boilerplate
 
 ### Informações do projeto:
 
