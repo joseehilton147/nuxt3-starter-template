@@ -11,6 +11,7 @@
 		"vue-toastification": "^2.0.0-rc.5"
 	},
 	"devDependencies": {
+		"@nuxt-alt/proxy": "^2.2.3",
 		"@nuxtjs/eslint-config-typescript": "^12.0.0",
 		"@pinia-plugin-persistedstate/nuxt": "^1.1.1",
 		"@unocss/eslint-config": "^0.51.12",
@@ -24,11 +25,10 @@
 		"husky": "^8.0.3",
 		"lint-staged": "^13.2.2",
 		"nuxt": "^3.4.3",
+		"nuxt-icon": "^0.4.0",
 		"prettier": "^2.8.8",
 		"prettier-plugin-tailwindcss": "^0.2.8",
-		"unocss": "^0.51.12",
-		"nuxt-icon": "^0.4.0",
-		"@nuxt-alt/proxy": "^2.2.3"
+		"unocss": "^0.51.12"
 	},
 	"overrides": {
 		"vue": "latest"
@@ -59,6 +59,9 @@
 		"*.vue": [
 			"npm run lint:prettier",
 			"npm run lint:check --fix"
+		],
+		"*": [
+			"npx npm-check-updates"
 		]
 	},
 	"config": {

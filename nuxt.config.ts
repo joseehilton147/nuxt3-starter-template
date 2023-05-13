@@ -21,7 +21,6 @@ export default defineNuxtConfig({
 	},
 
 	css: ['~/assets/style/main.css', '@unocss/reset/tailwind.css'],
-
 	modules: ['@pinia/nuxt', '@unocss/nuxt', 'nuxt-icon', '@pinia-plugin-persistedstate/nuxt', '@nuxt-alt/proxy'],
 
 	pinia: {
