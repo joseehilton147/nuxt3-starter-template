@@ -59,9 +59,6 @@
 		"*.vue": [
 			"npm run lint:prettier",
 			"npm run lint:check --fix"
-		],
-		"*": [
-			"npx npm-check-updates"
 		]
 	},
 	"config": {

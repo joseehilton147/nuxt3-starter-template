@@ -25,6 +25,10 @@ export default defineConfig({
 		colors: {
 			global: {
 				DEFAULT: '#F0F2F9', // bg-global
+				dark: {
+					DEFAULT: '#0C0B0F', // bg-global-dark
+					100: '#19181B', // bg-global-dark-100
+				},
 			},
 		},
 	},
