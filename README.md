@@ -1,4 +1,4 @@
-## Boilerplate
+## Biblioteca de componentes
 
 ### Informações do projeto:
 
@@ -15,35 +15,12 @@
 -   **Estilização**:
 
     -   [Uno CSS](https://unocss.dev/)
-    -   Versão 0.51.12
+    -   Versão 0.51.13
 
 -   **Node e Node Package Manager**:
 
     -   [Node](https://nodejs.org/dist/v18.16.0/)
     -   Versão 18.16.0 (o node já inclui o NPM na instalação)
-
--   **URL de acesso front-end**:
-
-    -   Produção:
-    -   Homologação:
-    -   Desenvolvimento:
-
--   **URL de acesso back-end API**:
-
-    -   Produção: [https://dummyjson.com](https://dummyjson.com)
-    -   Homologação: [https://dummyjson.com](https://dummyjson.com)
-    -   Desenvolvimento: [https://dummyjson.com](https://dummyjson.com)
-
--   **URL de acesso Swagger**:
-
-    -   Produção: [https://dummyjson.com/docs](https://dummyjson.com/docs)
-    -   Homologação: [https://dummyjson.com/docs](https://dummyjson.com/docs)
-    -   Desenvolvimento: [https://dummyjson.com/docs](https://dummyjson.com/docs)
-
--   **Versão do projeto**:
-    -   Produção:
-    -   Homologação:
-    -   Desenvolvimento:
 
 ### Comandos
 

@@ -41,6 +41,10 @@
 			type: Boolean,
 			default: false,
 		},
+		btnColors: {
+			type: String,
+			default: '',
+		},
 	})
 
 	const styleMap = {
@@ -84,18 +88,22 @@
 	const btnStyle = computed(() => {
 		if (props.btnStyle === 'reset') return ''
 
-		const style = styleMap[props.btnStyle]
-		const additionalStyles =
+		const style = props.btnColors ? props.btnColors : styleMap[props.btnStyle]
+
+		let additionalStyles =
 			props.btnVariant !== 'icon'
-				? 'p-y-8 p-x-16 b-rd-8 fw-400 transition duration-400 ease-in-out'
+				? 'fw-400 transition duration-400 ease-in-out p-y-8 p-x-16'
 				: 'flex items-center justify-center transition duration-400 ease-in-out'
-		return `${style[props.btnVariant] || style.default} ${additionalStyles}`
+
+		if (props.btnDisabled) additionalStyles += ' opacity-50'
+
+		return `${props.btnColors || style[props.btnVariant] || style.default} ${additionalStyles}`
 	})
 </script>
 
 <template>
 	<button
-		:class="[btnStyle, btnClass, btnDisabled || displayLoading ? 'pointer-events-none' : '']"
+		:class="[btnClass, btnStyle, btnDisabled || displayLoading ? 'pointer-events-none' : '']"
 		:type="btnType"
 		:disabled="btnDisabled || displayLoading"
 		:title="btnTitle"
@@ -107,7 +115,10 @@
 				class="wh-24"
 				:class="{'order-last': btnIconPosition === 'end'}"
 			/>
-			<span v-if="slots?.default && !displayLoading" :class="btnIconPosition === 'start' ? 'ml-4' : 'mr-4'">
+			<span
+				v-if="slots?.default && !displayLoading"
+				:class="{'ml-4': btnIconPosition === 'start' && btnIcon, 'mr-4': btnIconPosition === 'end' && btnIcon}"
+			>
 				<slot />
 			</span>
 		</div>

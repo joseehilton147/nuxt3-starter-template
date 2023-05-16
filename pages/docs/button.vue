@@ -7,6 +7,7 @@
 		icons: false,
 		iconsOnly: false,
 		loading: false,
+		colors: false,
 	})
 
 	const loading = reactive({
@@ -26,10 +27,14 @@
 	function displayCode(value) {
 		display[value] = !display[value]
 	}
+
+	useHead({
+		title: 'Botões',
+	})
 </script>
 
 <template>
-	<div class="m-y-32 container">
+	<div>
 		<!-- STYLE -->
 		<card-component class="relative">
 			<template #header>
@@ -284,6 +289,39 @@
 					{{ '<button-component :display-loading="bool" />' }}
 				</utils-code-component>
 			</template>
+		</card-component>
+
+		<!-- OUTRAS CORES -->
+		<card-component class="relative">
+			<template #header>
+				<h1 class="text-2xl">Personalização</h1>
+				<p class="m-y-24">Existem as seguintes personalizações:</p>
+				<ol class="m-l-12">
+					<li>
+						<utils-highlight-text-component
+							>btn-colors="bg-blue-600 color-white hover:bg-blue-900"</utils-highlight-text-component
+						>
+						para trocar as cores do botão.
+					</li>
+					<li class="m-y-12">
+						<utils-highlight-text-component
+							>btn-class="w-full rounded-full p-y-16! text-2xl"</utils-highlight-text-component
+						>
+						para trocar as classes do botão.
+					</li>
+				</ol>
+				<p class="m-y-24">
+					dica: <utils-highlight-text-component>p-y-16!</utils-highlight-text-component> use ! no final da
+					classe para sobrescrever a padrão, ! significa important.
+				</p>
+			</template>
+			<div class="m-t-32 flex gap-16">
+				<button-component
+					btn-colors="bg-blue-600 color-white hover:bg-blue-900"
+					btn-class="w-full rounded-full p-y-16! text-2xl"
+					>Botão personalizado</button-component
+				>
+			</div>
 		</card-component>
 	</div>
 </template>
