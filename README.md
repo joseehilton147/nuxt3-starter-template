@@ -15,7 +15,7 @@
 -   **Estilização**:
 
     -   [Uno CSS](https://unocss.dev/)
-    -   Versão 0.51.12
+    -   Versão 0.51.13
 
 -   **Node e Node Package Manager**:
 

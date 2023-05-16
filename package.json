@@ -13,9 +13,9 @@
 	"devDependencies": {
 		"@nuxtjs/eslint-config-typescript": "^12.0.0",
 		"@pinia-plugin-persistedstate/nuxt": "^1.1.1",
-		"@unocss/eslint-config": "^0.51.12",
-		"@unocss/nuxt": "^0.51.12",
-		"@unocss/preset-rem-to-px": "^0.51.12",
+		"@unocss/eslint-config": "^0.51.13",
+		"@unocss/nuxt": "^0.51.13",
+		"@unocss/preset-rem-to-px": "^0.51.13",
 		"commitizen": "^4.3.0",
 		"cz-conventional-changelog": "^3.3.0",
 		"eslint": "^8.40.0",
@@ -25,8 +25,8 @@
 		"lint-staged": "^13.2.2",
 		"nuxt": "^3.4.3",
 		"prettier": "^2.8.8",
-		"prettier-plugin-tailwindcss": "^0.2.8",
-		"unocss": "^0.51.12",
+		"prettier-plugin-tailwindcss": "^0.3.0",
+		"unocss": "^0.51.13",
 		"nuxt-icon": "^0.4.0",
 		"@nuxt-alt/proxy": "^2.2.3"
 	},
