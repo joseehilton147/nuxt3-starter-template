@@ -33,4 +33,8 @@ export default defineNuxtConfig({
 	experimental: {
 		viewTransition: true,
 	},
+
+	imports: {
+		dirs: ['composables/**'],
+	},
 })

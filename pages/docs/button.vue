@@ -1,327 +1,199 @@
 <script setup>
-	const display = reactive({
-		style: false,
-		outline: false,
-		light: false,
-		text: false,
-		icons: false,
-		iconsOnly: false,
-		loading: false,
-		colors: false,
-	})
-
-	const loading = reactive({
-		text: false,
-		iconText: false,
-		icon: false,
-	})
-
-	function toggleLoading(key) {
-		loading[key] = !loading[key]
-
-		setTimeout(() => {
-			loading[key] = false
-		}, 2000)
-	}
-
-	function displayCode(value) {
-		display[value] = !display[value]
-	}
-
 	useHead({
 		title: 'Botões',
 	})
 </script>
 
 <template>
-	<div>
-		<!-- STYLE -->
-		<card-component class="relative">
-			<template #header>
-				<button-component
-					btn-variant="icon"
-					btn-class="p-r-8 text-24 absolute top-16 right-16"
-					@click="displayCode('style')"
-				>
-					<Icon name="material-symbols:code" />
-				</button-component>
-				<h1 class="text-2xl">Style</h1>
-				<p class="m-t-12">
-					Você pode usar
-					<utils-highlight-text-component>btn-style="success"</utils-highlight-text-component> para trocar o
-					estilo do botão.
-				</p>
-				<p class="m-y-12">
-					É possível resetar o estilo do botão passando o parâmetro
-					<utils-highlight-text-component>reset</utils-highlight-text-component>.
-				</p>
-				<p><utils-highlight-text-component>primary</utils-highlight-text-component> é o estilo padrão.</p>
-			</template>
-			<div class="m-t-32 flex gap-16">
-				<button-component>Primary</button-component>
-				<button-component btn-style="success">Success</button-component>
-				<button-component btn-style="info">Info</button-component>
-				<button-component btn-style="warning">Warning</button-component>
-				<button-component btn-style="danger">Danger</button-component>
-			</div>
-			<template #footer>
-				<utils-code-component v-show="display.style" class="m-t-16">
-					<!-- prettier-ignore -->
-					{{ '<button-component btn-style="success">Success</button-component>' }}
-				</utils-code-component>
-			</template>
-		</card-component>
+	<card-component class="relative">
+		<template #header>
+			<h1 class="text-2xl">Variantes</h1>
+			<p class="m-y-12">
+				Você pode estilizar o botão de acordo com alguns estlos pré definidos, alterando o valor pelo prop
+				<code>variant</code>.
+			</p>
+		</template>
+		<div class="m-t-32 flex gap-16">
+			<button-component>solid</button-component>
+			<button-component variant="outline">outline</button-component>
+			<button-component variant="soft">soft</button-component>
+			<button-component variant="ghost">ghost</button-component>
+			<button-component variant="link">link</button-component>
+			<button-component variant="icon">icon</button-component>
+		</div>
+	</card-component>
 
-		<!-- LIGHT -->
-		<card-component class="m-y-32 relative">
-			<template #header>
-				<button-component
-					btn-variant="icon"
-					btn-class="p-r-8 text-24 absolute top-16 right-16"
-					@click="displayCode('light')"
-				>
-					<Icon name="material-symbols:code" />
-				</button-component>
-				<h1 class="text-2xl">Outline</h1>
-				<p class="m-t-12">
-					Você pode usar
-					<utils-highlight-text-component>btn-variant="outline"</utils-highlight-text-component> para que o
-					botão tenha apenas uma borda com o estilo definido.
-				</p>
-			</template>
-			<div class="m-t-32 flex gap-16">
-				<button-component btn-variant="outline">Primary</button-component>
-				<button-component btn-style="success" btn-variant="outline">Success</button-component>
-				<button-component btn-style="info" btn-variant="outline">Info</button-component>
-				<button-component btn-style="warning" btn-variant="outline">Warning</button-component>
-				<button-component btn-style="danger" btn-variant="outline">Danger</button-component>
-			</div>
-			<template #footer>
-				<utils-code-component v-show="display.outline" class="m-t-16">
-					<!-- prettier-ignore -->
-					{{ '<button-component btn-variant="outline">Success</button-component>' }}
-				</utils-code-component>
-			</template>
-		</card-component>
+	<card-component class="m-y-32 relative">
+		<template #header>
+			<h1 class="text-2xl">Cores</h1>
+			<p class="m-y-12">Existem algumas cores pré definidas, você pode alterar pelo prop <code>color</code>.</p>
+		</template>
+		<div class="m-t-32 flex gap-16">
+			<button-component color="purple">solid</button-component>
+			<button-component variant="outline" color="purple">outline</button-component>
+			<button-component variant="soft" color="purple">soft</button-component>
+			<button-component variant="ghost" color="purple">ghost</button-component>
+			<button-component variant="link" color="purple">link</button-component>
+			<button-component variant="icon" color="purple">icon</button-component>
+		</div>
+	</card-component>
 
-		<!-- LIGHT -->
-		<card-component class="m-y-32 relative">
-			<template #header>
-				<button-component
-					btn-variant="icon"
-					btn-class="p-r-8 text-24 absolute top-16 right-16"
-					@click="displayCode('light')"
-				>
-					<Icon name="material-symbols:code" />
-				</button-component>
-				<h1 class="text-2xl">Light</h1>
-				<p class="m-t-12">
-					Você pode usar
-					<utils-highlight-text-component>btn-variant="light"</utils-highlight-text-component> para que o
-					texto tenha a mesma cor padrão porém se sobresaindo.
-				</p>
-			</template>
-			<div class="m-t-32 flex gap-16">
-				<button-component btn-variant="light">Primary</button-component>
-				<button-component btn-style="success" btn-variant="light">Success</button-component>
-				<button-component btn-style="info" btn-variant="light">Info</button-component>
-				<button-component btn-style="warning" btn-variant="light">Warning</button-component>
-				<button-component btn-style="danger" btn-variant="light">Danger</button-component>
-			</div>
-			<template #footer>
-				<utils-code-component v-show="display.light" class="m-t-16">
-					<!-- prettier-ignore -->
-					{{ '<button-component btn-variant="light">Success</button-component>' }}
-				</utils-code-component>
-			</template>
-		</card-component>
+	<card-component class="m-y-32 relative">
+		<template #header>
+			<h1 class="text-2xl">Texto</h1>
+			<p class="m-y-12">Use o slot padrão para definir o texto do botão.</p>
+			<p>Voce também pode usar o prop <code>label</code>.</p>
+		</template>
+		<div class="m-t-32 flex gap-16">
+			<button-component label="Exemplo" />
+		</div>
+	</card-component>
 
-		<!-- TEXT -->
-		<card-component class="m-y-32 relative">
-			<template #header>
-				<button-component
-					btn-variant="icon"
-					btn-class="p-r-8 text-24 absolute top-16 right-16"
-					@click="displayCode('text')"
-				>
-					<Icon name="material-symbols:code" />
-				</button-component>
-				<h1 class="text-2xl">Text</h1>
-				<p class="m-t-12">
-					Você pode usar
-					<utils-highlight-text-component>btn-variant="text"</utils-highlight-text-component> para ter apenas
-					um texto na cor padrão.
-				</p>
-			</template>
-			<div class="m-t-32 flex gap-16">
-				<button-component btn-variant="text">Primary</button-component>
-				<button-component btn-style="success" btn-variant="text">Success</button-component>
-				<button-component btn-style="info" btn-variant="text">Info</button-component>
-				<button-component btn-style="warning" btn-variant="text">Warning</button-component>
-				<button-component btn-style="danger" btn-variant="text">Danger</button-component>
-			</div>
-			<template #footer>
-				<utils-code-component v-show="display.text" class="m-t-16">
-					<!-- prettier-ignore -->
-					{{ '<button-component btn-variant="text">Success</button-component>' }}
-				</utils-code-component>
-			</template>
-		</card-component>
+	<card-component class="m-y-32 relative">
+		<template #header>
+			<h1 class="text-2xl">Link</h1>
+			<p class="m-y-12">
+				Use o prop <code>to</code> para adicionar um link ao botão, o tipo do marcador irá ser alterado de
+				button para nuxt-link.
+			</p>
+			<p class="m-y-12">Você tambem pode usar o prop <code>target</code> para definir onde abrir o link.</p>
+		</template>
+		<div class="m-t-32 flex gap-16">
+			<button-component to="https://www.google.com.br" target="_blank" label="Ir para o Google" />
+		</div>
+	</card-component>
 
-		<!-- ICONS -->
-		<card-component class="m-y-32 relative">
-			<template #header>
-				<button-component
-					btn-variant="icon"
-					btn-class="p-r-8 text-24 absolute top-16 right-16"
-					@click="displayCode('icons')"
-				>
-					<Icon name="material-symbols:code" />
-				</button-component>
-				<h1 class="text-2xl">Icons</h1>
-				<p class="m-y-12">
-					Você pode usar o prop
-					<utils-highlight-text-component>icon</utils-highlight-text-component> para adicionar um icone ao
-					botão.
-				</p>
-				<p>
-					Para adicionar um icone após o texto, basta adicionar o prop
-					<utils-highlight-text-component>btn-icon-position="end"</utils-highlight-text-component>.
-				</p>
-			</template>
-			<div class="m-t-32">
-				<div class="flex gap-16">
-					<button-component btn-icon="bx:accessibility">Primary</button-component>
-					<button-component btn-variant="outline" btn-icon="bx:atom">Outline</button-component>
-					<button-component btn-variant="light" btn-icon="bx:smile">Light</button-component>
-					<button-component btn-variant="text" btn-icon="bx:bug">Text</button-component>
-				</div>
-				<div class="m-t-32 flex gap-16">
-					<button-component btn-style="info" btn-icon="bx:accessibility" btn-icon-position="end"
-						>Primary</button-component
-					>
-					<button-component btn-style="info" btn-variant="outline" btn-icon="bx:atom" btn-icon-position="end"
-						>Outline</button-component
-					>
-					<button-component btn-style="info" btn-variant="light" btn-icon="bx:smile" btn-icon-position="end"
-						>Light</button-component
-					>
-					<button-component btn-style="info" btn-variant="text" btn-icon="bx:bug" btn-icon-position="end"
-						>Text</button-component
-					>
-				</div>
-			</div>
-			<template #footer>
-				<utils-code-component v-show="display.icons" class="m-t-16">
-					<!-- prettier-ignore -->
-					{{ '<button-component btn-icon="bx:bug">Primary</button-component>' }}
-				</utils-code-component>
-			</template>
-		</card-component>
+	<card-component class="relative">
+		<template #header>
+			<h1 class="text-2xl">Truncate</h1>
+			<p class="m-y-12">Use o prop <code>truncate</code> para encurtar o texto do botão.</p>
+		</template>
+		<div class="m-t-32 flex gap-16">
+			<button-component :truncate="true" class="w-80" label="Botão com texto muito comprido" />
+		</div>
+	</card-component>
 
-		<!-- ICON ONLY -->
-		<card-component class="m-y-32 relative">
-			<template #header>
-				<button-component
-					btn-variant="icon"
-					btn-class="p-r-8 text-24 absolute top-16 right-16"
-					@click="displayCode('iconsOnly')"
-				>
-					<Icon name="material-symbols:code" />
-				</button-component>
-				<h1 class="text-2xl">Icon Only</h1>
-				<p class="m-t-12">
-					Você pode usar
-					<utils-highlight-text-component>btn-icon="bx:bug"</utils-highlight-text-component> para exibir
-					apenas o ícone.
-				</p>
-			</template>
-			<div class="m-t-32 flex gap-16">
-				<button-component btn-icon="bx:accessibility" />
-				<button-component btn-variant="outline" btn-icon="bx:atom" />
-				<button-component btn-variant="light" btn-icon="bx:smile" />
-				<button-component btn-variant="text" btn-icon="bx:bug" />
-			</div>
-			<template #footer>
-				<utils-code-component v-show="display.iconsOnly" class="m-t-16">
-					<!-- prettier-ignore -->
-					{{ '<button-component btn-icon="bx:accessibility" />' }}
-				</utils-code-component>
-			</template>
-		</card-component>
+	<card-component class="m-y-32 relative">
+		<template #header>
+			<h1 class="text-2xl">Desativar</h1>
+			<p class="m-y-12">Use o prop <code>disabled</code> para desativar o botão.</p>
+		</template>
+		<div class="m-t-32 flex gap-16">
+			<button-component :disabled="true" label="Exemplo" />
+		</div>
+	</card-component>
 
-		<!-- LOADING -->
-		<card-component class="m-y-32 relative">
-			<template #header>
-				<button-component
-					btn-variant="icon"
-					btn-class="p-r-8 text-24 absolute top-16 right-16"
-					@click="displayCode('loading')"
-				>
-					<Icon name="material-symbols:code" />
-				</button-component>
-				<h1 class="text-2xl">Loading</h1>
-				<p class="m-t-12">
-					Você pode usar o prop
-					<utils-highlight-text-component>display-loading</utils-highlight-text-component> para exibir o
-					loading.
-				</p>
-			</template>
-			<div class="m-t-32 flex gap-16">
-				<button-component :display-loading="loading.text" @click="toggleLoading('text')"
-					>Carregar mais</button-component
-				>
-				<button-component
-					btn-icon="bx:cloud-upload"
-					:display-loading="loading.iconText"
-					@click="toggleLoading('iconText')"
-					>Enviar</button-component
-				>
-				<button-component
-					btn-icon="bx:cloud-upload"
-					:display-loading="loading.icon"
-					@click="toggleLoading('icon')"
-				/>
-			</div>
-			<template #footer>
-				<utils-code-component v-show="display.loading" class="m-t-16">
-					<!-- prettier-ignore -->
-					{{ '<button-component :display-loading="bool" />' }}
-				</utils-code-component>
-			</template>
-		</card-component>
+	<card-component class="relative">
+		<template #header>
+			<h1 class="text-2xl">Loading</h1>
+			<p class="m-y-12">
+				Use o prop <code>loading</code> para mostrar um ícone de carregamento e desativar o botão.
+			</p>
+			<p>Use o prop <code>loading-icon</code> para alterar o ícone definido.</p>
+		</template>
+		<div class="m-t-32 flex gap-16">
+			<button-component :loading="true" label="Exemplo" />
+		</div>
+	</card-component>
 
-		<!-- OUTRAS CORES -->
-		<card-component class="relative">
-			<template #header>
-				<h1 class="text-2xl">Personalização</h1>
-				<p class="m-y-24">Existem as seguintes personalizações:</p>
-				<ol class="m-l-12">
-					<li>
-						<utils-highlight-text-component
-							>btn-colors="bg-blue-600 color-white hover:bg-blue-900"</utils-highlight-text-component
-						>
-						para trocar as cores do botão.
-					</li>
-					<li class="m-y-12">
-						<utils-highlight-text-component
-							>btn-class="w-full rounded-full p-y-16! text-2xl"</utils-highlight-text-component
-						>
-						para trocar as classes do botão.
-					</li>
-				</ol>
-				<p class="m-y-24">
-					dica: <utils-highlight-text-component>p-y-16!</utils-highlight-text-component> use ! no final da
-					classe para sobrescrever a padrão, ! significa important.
-				</p>
-			</template>
-			<div class="m-t-32 flex gap-16">
-				<button-component
-					btn-colors="bg-blue-600 color-white hover:bg-blue-900"
-					btn-class="w-full rounded-full p-y-16! text-2xl"
-					>Botão personalizado</button-component
-				>
-			</div>
-		</card-component>
-	</div>
+	<card-component class="m-y-32 relative">
+		<template #header>
+			<h1 class="text-2xl">Icone</h1>
+			<p class="m-y-12">
+				Use qualquer icone da biblioteca
+				<a href="https://icon-sets.iconify.design/" target="_blank">Iconify</a> e use o prop
+				<code>icon</code> para definir.
+			</p>
+			<p>
+				Use o prop <code>icon-position</code> para alterar a posição do icone entre <code>left</code> e
+				<code>right</code>.
+			</p>
+			<p class="m-y-12">
+				O prop <code>label</code> ou o slot é opcional, então se quiser utilizar o botão apenas como ícone,
+				basta remove-los.
+			</p>
+		</template>
+		<div class="m-t-32 flex gap-16">
+			<button-component icon="material-symbols:star" label="Exemplo" />
+			<button-component icon="material-symbols:star" />
+		</div>
+	</card-component>
+
+	<card-component class="relative">
+		<template #header>
+			<h1 class="text-2xl">Block</h1>
+			<p class="m-y-12">
+				Use o prop <code>block</code> para fazer o botão preencher a largura total do container.
+			</p>
+		</template>
+		<div class="m-t-32 flex gap-16">
+			<button-component block label="Exemplo" />
+		</div>
+	</card-component>
+
+	<card-component class="m-y-32 relative">
+		<template #header>
+			<h1 class="text-2xl">Tamanho do texto</h1>
+			<p class="m-y-12">Use o prop <code>text-size</code> para alterar o tamanho do texto.</p>
+			<small class="m-y-12">O padrão definido é <code>md</code>.</small>
+		</template>
+		<div class="m-t-32 flex gap-16">
+			<button-component text-size="xs" label="xs" />
+			<button-component text-size="sm" label="sm" />
+			<button-component label="md" />
+			<button-component text-size="lg" label="lg" />
+			<button-component text-size="xl" label="xl" />
+			<button-component text-size="2xl" label="2xl" />
+			<button-component text-size="3xl" label="3xl" />
+		</div>
+	</card-component>
+
+	<card-component class="m-y-32 relative">
+		<template #header>
+			<h1 class="text-2xl">Radius</h1>
+			<p class="m-y-12">Use o prop <code>radius</code> para alterar como o botão é arrendodado.</p>
+			<small class="m-y-12">O padrão definido é <code>xs</code>.</small>
+		</template>
+		<div class="m-t-32 flex gap-16">
+			<button-component radius="disabled" label="disabled" />
+			<button-component radius="xs" label="xs" />
+			<button-component radius="sm" label="sm" />
+			<button-component label="md" />
+			<button-component radius="lg" label="lg" />
+			<button-component radius="xl" label="xl" />
+			<button-component radius="full" label="full" />
+		</div>
+	</card-component>
+
+	<card-component class="m-y-32 relative">
+		<template #header>
+			<h1 class="text-2xl">Padding</h1>
+			<p class="m-y-12">Use o prop <code>padding</code> para alterar as dimensões internas do botão.</p>
+			<small class="m-y-12">O padrão definido é <code>md</code>.</small>
+		</template>
+		<div class="m-t-32 flex gap-16">
+			<button-component padding="disabled" label="disabled" />
+			<button-component padding="xs" label="xs" />
+			<button-component padding="sm" label="sm" />
+			<button-component label="md" />
+			<button-component padding="lg" label="lg" />
+			<button-component padding="xl" label="xl" />
+		</div>
+	</card-component>
+
+	<card-component class="m-y-32 relative">
+		<template #header>
+			<h1 class="text-2xl">Gap</h1>
+			<p class="m-y-12">Use o prop <code>gap</code> para definir o espaçamento entre elementos dentro do botão</p>
+			<small class="m-y-12">O padrão definido é <code>sm</code>.</small>
+		</template>
+		<div class="m-t-32 flex gap-16">
+			<button-component gap="disabled" label="disabled" icon="material-symbols:star" />
+			<button-component gap="xs" label="xs" icon="material-symbols:star" />
+			<button-component gap="sm" label="sm" icon="material-symbols:star" />
+			<button-component label="md" icon="material-symbols:star" />
+			<button-component gap="lg" label="lg" icon="material-symbols:star" />
+			<button-component gap="xl" label="xl" icon="material-symbols:star" />
+		</div>
+	</card-component>
 </template>

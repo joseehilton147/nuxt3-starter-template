@@ -1,126 +1,176 @@
 <script setup>
-	const slots = useSlots()
+	import {NuxtLink} from '#components'
 
 	const props = defineProps({
-		btnClass: {
-			type: [String, Array],
-			default: '',
-		},
-		btnType: {
+		type: {
 			type: String,
 			default: 'button',
 		},
-		btnTitle: {
+		label: {
+			type: String,
+			default: null,
+		},
+		ariaLabel: {
+			type: String,
+			default: null,
+		},
+		loading: {
+			type: Boolean,
+			default: false,
+		},
+		loadingIcon: {
+			type: String,
+			default: 'line-md:loading-twotone-loop',
+		},
+		disabled: {
+			type: Boolean,
+			default: false,
+		},
+		icon: {
+			type: String,
+			default: null,
+		},
+		iconPosition: {
+			type: String,
+			default: 'left',
+			validator: value => ['left', 'right'].includes(value),
+		},
+		block: {
+			type: Boolean,
+			default: false,
+		},
+		to: {
+			type: String,
+			default: null,
+		},
+		target: {
+			type: String,
+			default: null,
+		},
+		truncate: {
+			type: Boolean,
+			default: false,
+		},
+		textSize: {
+			type: String,
+			default: 'md',
+			validator: value => ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl'].includes(value),
+		},
+		btnClass: {
+			type: String,
+			default: null,
+		},
+		variant: {
+			type: String,
+			default: 'solid',
+			validator: value => ['solid', 'outline', 'soft', 'ghost', 'link', 'icon'].includes(value),
+		},
+		customColor: {
 			type: String,
 			default: '',
 		},
-		btnStyle: {
+		radius: {
+			type: String,
+			default: 'xs',
+			validator: value => ['disabled', 'xs', 'sm', 'md', 'lg', 'xl', 'full'].includes(value),
+		},
+		padding: {
+			type: String,
+			default: 'md',
+			validator: value => ['disabled', 'xs', 'sm', 'md', 'lg', 'xl'].includes(value),
+		},
+		gap: {
+			type: String,
+			default: 'sm',
+			validator: value => ['disabled', 'xs', 'sm', 'md', 'lg', 'xl'].includes(value),
+		},
+		color: {
 			type: String,
 			default: 'primary',
-			enum: ['primary', 'success', 'danger', 'warning', 'info', 'reset'],
-		},
-		btnVariant: {
-			type: String,
-			default: '',
-			enum: ['light', 'outline', 'text', 'icon'],
-		},
-		btnIcon: {
-			type: String,
-			default: '',
-		},
-		btnIconPosition: {
-			type: String,
-			default: 'start',
-			enum: ['start', 'end'],
-		},
-		btnDisabled: {
-			type: Boolean,
-			default: false,
-		},
-		displayLoading: {
-			type: Boolean,
-			default: false,
-		},
-		btnColors: {
-			type: String,
-			default: '',
+			validator: value => ['primary', 'purple'].includes(value),
 		},
 	})
 
-	const styleMap = {
-		primary: {
-			light: 'color-purple-500 bg-purple-800 bg-opacity-20  hover:bg-opacity-40',
-			outline: 'color-purple-500 border border-purple-800 hover:bg-purple-800 hover:color-white',
-			text: 'color-purple-500 hover:bg-purple-800 hover:bg-opacity-20',
-			icon: 'hover:color-purple-500',
-			default: 'bg-purple-800 color-white hover:bg-purple-900',
-		},
-		success: {
-			light: 'color-green-500 bg-green-800 bg-opacity-20  hover:bg-opacity-40',
-			outline: 'color-green-500 border border-green-800 hover:bg-green-800 hover:color-white',
-			text: 'color-green-500 hover:bg-green-800 hover:bg-opacity-20',
-			icon: 'hover:color-green-600',
-			default: 'bg-green-800 color-white hover:bg-green-900',
-		},
-		danger: {
-			light: 'color-red-500 bg-red-800 bg-opacity-20 hover:bg-opacity-40',
-			outline: 'color-red-500 border border-red-800 hover:bg-red-800 hover:color-white',
-			text: 'color-red-500 hover:bg-red-800 hover:bg-opacity-20',
-			icon: 'hover:color-red-600',
-			default: 'bg-red-800 color-white hover:bg-red-900',
-		},
-		warning: {
-			light: 'color-yellow-500 bg-yellow-800 bg-opacity-20  hover:bg-opacity-40',
-			outline: 'color-yellow-500 border border-yellow-800 hover:bg-yellow-800 hover:color-white',
-			text: 'color-yellow-600 hover:bg-yellow-800 hover:bg-opacity-20',
-			icon: 'hover:color-yellow-600',
-			default: 'bg-yellow-800 color-white hover:bg-yellow-900',
-		},
-		info: {
-			light: 'color-cyan-500 bg-cyan-800 bg-opacity-20 hover:bg-opacity-40',
-			outline: 'color-cyan-500 border border-cyan-800 hover:bg-cyan-800 hover:color-white',
-			text: 'color-cyan-600 hover:bg-cyan-800 hover:bg-opacity-20',
-			icon: 'hover:color-cyan-600',
-			default: 'bg-cyan-800 color-white hover:bg-cyan-900',
-		},
+	const variants = useVariants()
+
+	const buttonClass = computed(() => {
+		const defaultBtn =
+			'focus:outline-none focus-visible:outline-0 disabled:opacity-50 disabled:pointer-events-none flex-shrink-0 transition duration-400 ease-in-out'
+
+		const isBlock = props.block ? 'w-full flex justify-center items-center' : 'inline-flex items-center'
+
+		const style = props.customColor ? props.customColor : variants[props.variant][props.color]
+
+		const radius = props.radius !== 'disabled' ? radiusSizes[props.radius] : ''
+
+		const padding = props.padding !== 'disabled' ? paddingSizes[props.padding] : ''
+
+		const gap = props.gap !== 'disabled' ? gapSizes[props.gap] : ''
+
+		const textSize = textSizes[props.textSize]
+
+		return `${padding} ${gap} ${textSize} ${radius} ${defaultBtn} ${isBlock} ${props.btnClass} ${style}`
+	})
+
+	const buttonProps = computed(() => {
+		if (props.to) {
+			return {to: props.to, target: props.target}
+		}
+
+		return {disabled: props.disabled || props.loading, type: props.type}
+	})
+
+	const displayIcon = computed(() => {
+		const shouldDisplayLeftIcon = props.iconPosition === 'left' && (props.loading || props.icon)
+		const shouldDisplayRightIcon = props.iconPosition === 'right' && (props.loading || props.icon)
+
+		return {left: shouldDisplayLeftIcon, right: shouldDisplayRightIcon}
+	})
+
+	const textSizes = {
+		xs: 'text-xs',
+		sm: 'text-sm',
+		md: 'text-base',
+		lg: 'text-lg',
+		xl: 'text-xl',
+		'2xl': 'text-2xl',
+		'3xl': 'text-3xl',
 	}
 
-	const btnStyle = computed(() => {
-		if (props.btnStyle === 'reset') return ''
+	const gapSizes = {
+		xs: 'gap-x-2',
+		sm: 'gap-x-4',
+		md: 'gap-x-6',
+		lg: 'gap-x-8',
+		xl: 'gap-x-10',
+	}
 
-		const style = props.btnColors ? props.btnColors : styleMap[props.btnStyle]
+	const radiusSizes = {
+		xs: 'rounded-2',
+		sm: 'rounded-4',
+		md: 'rounded-8',
+		lg: 'rounded-12',
+		xl: 'rounded-16',
+		full: 'rounded-full',
+	}
 
-		let additionalStyles =
-			props.btnVariant !== 'icon'
-				? 'fw-400 transition duration-400 ease-in-out p-y-8 p-x-16'
-				: 'flex items-center justify-center transition duration-400 ease-in-out'
-
-		if (props.btnDisabled) additionalStyles += ' opacity-50'
-
-		return `${props.btnColors || style[props.btnVariant] || style.default} ${additionalStyles}`
-	})
+	const paddingSizes = {
+		xs: 'px-4 py-2',
+		sm: 'px-6 py-3',
+		md: 'px-8 py-4',
+		lg: 'px-12 py-6',
+		xl: 'px-16 py-8',
+	}
 </script>
 
 <template>
-	<button
-		:class="[btnClass, btnStyle, btnDisabled || displayLoading ? 'pointer-events-none' : '']"
-		:type="btnType"
-		:disabled="btnDisabled || displayLoading"
-		:title="btnTitle"
-	>
-		<div class="flex contents cursor-pointer items-center justify-center">
-			<Icon
-				v-if="btnIcon || displayLoading"
-				:name="displayLoading ? 'line-md:loading-twotone-loop' : btnIcon"
-				class="wh-24"
-				:class="{'order-last': btnIconPosition === 'end'}"
-			/>
-			<span
-				v-if="slots?.default && !displayLoading"
-				:class="{'ml-4': btnIconPosition === 'start' && btnIcon, 'mr-4': btnIconPosition === 'end' && btnIcon}"
-			>
-				<slot />
+	<component :is="to ? NuxtLink : 'button'" :aria-label="ariaLabel" :class="buttonClass" v-bind="buttonProps">
+		<Icon v-if="displayIcon.left" :name="loading ? loadingIcon : icon" class="flex-shrink-0" aria-hidden="true" />
+		<slot>
+			<span v-if="label" :class="[truncate ? 'line-clamp-1 break-all text-left' : '']">
+				{{ label }}
 			</span>
-		</div>
-	</button>
+		</slot>
+		<Icon v-if="displayIcon.right" :name="loading ? loadingIcon : icon" class="flex-shrink-0" aria-hidden="true" />
+	</component>
 </template>

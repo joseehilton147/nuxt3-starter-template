@@ -30,6 +30,20 @@ export default defineConfig({
 					100: '#19181B', // bg-global-dark-100
 				},
 			},
+			primary: {
+				DEFAULT: '#32585a', // bg-primary
+				50: '#99acad', // bg-primary-50
+				100: '#849b9c', // bg-primary-100
+				200: '#708a8c', // bg-primary-200
+				300: '#5b797b', // bg-primary-300
+				400: '#47696b', // bg-primary-400
+				500: '#32585a', // bg-primary-500
+				600: '#2d4f51', // bg-primary-600
+				700: '#284648', // bg-primary-700
+				800: '#233e3f', // bg-primary-800
+				900: '#1e3536', // bg-primary-900
+				950: '#192c2d', // bg-primary-950
+			},
 		},
 	},
 	postprocess: util => {
