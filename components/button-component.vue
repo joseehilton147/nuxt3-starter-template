@@ -74,11 +74,6 @@
 			default: 'xs',
 			validator: value => ['disabled', 'xs', 'sm', 'md', 'lg', 'xl', 'full'].includes(value),
 		},
-		padding: {
-			type: String,
-			default: 'md',
-			validator: value => ['disabled', 'xs', 'sm', 'md', 'lg', 'xl'].includes(value),
-		},
 		gap: {
 			type: String,
 			default: 'sm',
@@ -87,7 +82,7 @@
 		color: {
 			type: String,
 			default: 'primary',
-			validator: value => ['primary', 'purple'].includes(value),
+			validator: value => ['primary', 'purple', 'red', 'green', 'yellow', 'gray', 'cyan', 'blue'].includes(value),
 		},
 	})
 
@@ -95,7 +90,7 @@
 
 	const buttonClass = computed(() => {
 		const defaultBtn =
-			'focus:outline-none focus-visible:outline-0 disabled:opacity-50 disabled:pointer-events-none flex-shrink-0 transition duration-400 ease-in-out'
+			'focus:outline-none focus-visible:outline-0 disabled:opacity-50 disabled:pointer-events-none flex-shrink-0 transition duration-400 ease-in-out px-16 py-8'
 
 		const isBlock = props.block ? 'w-full flex justify-center items-center' : 'inline-flex items-center'
 
@@ -103,13 +98,11 @@
 
 		const radius = props.radius !== 'disabled' ? radiusSizes[props.radius] : ''
 
-		const padding = props.padding !== 'disabled' ? paddingSizes[props.padding] : ''
-
 		const gap = props.gap !== 'disabled' ? gapSizes[props.gap] : ''
 
 		const textSize = textSizes[props.textSize]
 
-		return `${padding} ${gap} ${textSize} ${radius} ${defaultBtn} ${isBlock} ${props.btnClass} ${style}`
+		return `${gap} ${textSize} ${radius} ${defaultBtn} ${isBlock} ${props.btnClass} ${style}`
 	})
 
 	const buttonProps = computed(() => {
@@ -152,14 +145,6 @@
 		lg: 'rounded-12',
 		xl: 'rounded-16',
 		full: 'rounded-full',
-	}
-
-	const paddingSizes = {
-		xs: 'px-4 py-2',
-		sm: 'px-6 py-3',
-		md: 'px-8 py-4',
-		lg: 'px-12 py-6',
-		xl: 'px-16 py-8',
 	}
 </script>
 

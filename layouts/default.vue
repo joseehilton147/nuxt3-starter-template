@@ -10,8 +10,12 @@
 			link: '/docs/accordion',
 		},
 		{
-			title: 'Botões',
+			title: 'Botão',
 			link: '/docs/button',
+		},
+		{
+			title: 'Modal',
+			link: '/docs/modal',
 		},
 	])
 
