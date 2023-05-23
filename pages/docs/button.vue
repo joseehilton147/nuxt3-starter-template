@@ -38,6 +38,15 @@
 				<button-component variant="icon" color="primary">icon</button-component>
 				<code>color="primary"</code>
 			</div>
+			<div class="flex items-center gap-16">
+				<button-component color="secondary">solid</button-component>
+				<button-component variant="outline" color="secondary">outline</button-component>
+				<button-component variant="soft" color="secondary">soft</button-component>
+				<button-component variant="ghost" color="secondary">ghost</button-component>
+				<button-component variant="link" color="secondary">link</button-component>
+				<button-component variant="icon" color="secondary">icon</button-component>
+				<code>color="secondary"</code>
+			</div>
 			<div class="m-t-16 flex items-center gap-16">
 				<button-component color="purple">solid</button-component>
 				<button-component variant="outline" color="purple">outline</button-component>

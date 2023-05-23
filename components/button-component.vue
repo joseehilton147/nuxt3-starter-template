@@ -82,7 +82,8 @@
 		color: {
 			type: String,
 			default: 'primary',
-			validator: value => ['primary', 'purple', 'red', 'green', 'yellow', 'gray', 'cyan', 'blue'].includes(value),
+			validator: value =>
+				['primary', 'secondary', 'purple', 'red', 'green', 'yellow', 'gray', 'cyan', 'blue'].includes(value),
 		},
 	})
 
