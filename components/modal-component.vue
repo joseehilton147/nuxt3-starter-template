@@ -15,7 +15,7 @@
 		},
 		wrapperClass: {
 			type: String,
-			default: 'b-rd-4 bg-white',
+			default: 'bg-white',
 		},
 		headerClass: {
 			type: String,
@@ -60,7 +60,7 @@
 
 	function toggleModal() {
 		if (props.canClose) {
-			document.body.classList.remove('overflow-hidden')
+			// document.body.classList.remove('overflow-hidden')
 
 			modal.show = !modal.show
 			emit('close', modal.show)
@@ -68,7 +68,7 @@
 	}
 
 	onMounted(() => {
-		document.body.classList.add('overflow-hidden')
+		// document.body.classList.add('overflow-hidden')
 
 		modal.show = props.show
 		modal.title = props.title
@@ -77,8 +77,8 @@
 
 <template>
 	<div v-if="modal.show" class="right-50% top-50% translate-x-50% translate-y--50% z-9999 fixed">
-		<div :class="['relative', wrapperClass]">
-			<header :class="['flex items-center justify-between border-b', headerClass]">
+		<div :class="['b-rd-8 relative', wrapperClass]">
+			<header :class="['b-rd-t-8 flex items-center justify-between border-b', headerClass]">
 				<h3 :class="titleClass">
 					{{ modal.title }}
 				</h3>
@@ -89,7 +89,7 @@
 			<main :class="mainClass">
 				<slot />
 			</main>
-			<footer :class="['border-t', footerClass]">
+			<footer :class="['b-rd-b-8 border-t', footerClass]">
 				<slot name="footer" />
 			</footer>
 		</div>

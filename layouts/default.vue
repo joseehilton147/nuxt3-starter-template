@@ -17,6 +17,10 @@
 			title: 'Modal',
 			link: '/docs/modal',
 		},
+		{
+			title: 'Input radio',
+			link: '/docs/radio',
+		},
 	])
 
 	function setCurrentItem(index) {
@@ -33,9 +37,9 @@
 					:key="item.title"
 					:to="item.link"
 					:class="[
-						'm-b-16 b-rd-4 bg-global-dark-100 block cursor-pointer p-16 text-lg hover:bg-gray-900',
+						'm-b-16 b-rd-4 bg-global-dark-100 hover:bg-primary-500 block cursor-pointer p-16 text-lg',
 						{
-							'bg-gray-900': index === currentItem,
+							'bg-primary-600': index === currentItem,
 						},
 					]"
 					@click="setCurrentItem(index)"
