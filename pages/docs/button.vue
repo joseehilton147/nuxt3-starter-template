@@ -38,7 +38,7 @@
 				<button-component variant="icon" color="primary">icon</button-component>
 				<code>color="primary"</code>
 			</div>
-			<div class="flex items-center gap-16">
+			<div class="m-t-16 flex items-center gap-16">
 				<button-component color="secondary">solid</button-component>
 				<button-component variant="outline" color="secondary">outline</button-component>
 				<button-component variant="soft" color="secondary">soft</button-component>
