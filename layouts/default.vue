@@ -18,12 +18,16 @@
 			link: '/docs/modal',
 		},
 		{
-			title: 'Input radio',
+			title: 'Radio',
 			link: '/docs/radio',
 		},
 		{
 			title: 'Input',
 			link: '/docs/input',
+		},
+		{
+			title: 'Checkbox',
+			link: '/docs/checkbox',
 		},
 	])
 
