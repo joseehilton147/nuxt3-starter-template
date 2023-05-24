@@ -14,9 +14,9 @@
 		"@nuxt-alt/proxy": "^2.2.3",
 		"@nuxtjs/eslint-config-typescript": "^12.0.0",
 		"@pinia-plugin-persistedstate/nuxt": "^1.1.1",
-		"@unocss/eslint-config": "^0.52.1",
-		"@unocss/nuxt": "^0.52.1",
-		"@unocss/preset-rem-to-px": "^0.52.1",
+		"@unocss/eslint-config": "^0.52.3",
+		"@unocss/nuxt": "^0.52.3",
+		"@unocss/preset-rem-to-px": "^0.52.3",
 		"commitizen": "^4.3.0",
 		"cz-conventional-changelog": "^3.3.0",
 		"eslint": "^8.41.0",
@@ -28,7 +28,7 @@
 		"nuxt-icon": "^0.4.1",
 		"prettier": "^2.8.8",
 		"prettier-plugin-tailwindcss": "^0.3.0",
-		"unocss": "^0.52.1"
+		"unocss": "^0.52.3"
 	},
 	"overrides": {
 		"vue": "latest"

@@ -30,7 +30,7 @@
 		},
 		inputClass: {
 			type: String,
-			default: 'wh-20 rounded-full border',
+			default: 'wh-16 rounded-full border',
 		},
 		classChecked: {
 			type: String,

@@ -35,6 +35,16 @@
 			default: 'left',
 			validator: value => ['left', 'right'].includes(value),
 		},
+		iconRotation: {
+			type: String,
+			default: 'rotate-0',
+			validator: value =>
+				['rotate-0', 'rotate-45', 'rotate-90', 'rotate-180', 'rotate-270', 'rotate-360'].includes(value),
+		},
+		iconSize: {
+			type: String,
+			default: 'wh-24',
+		},
 		block: {
 			type: Boolean,
 			default: false,
@@ -59,6 +69,10 @@
 		btnClass: {
 			type: String,
 			default: null,
+		},
+		additionalClass: {
+			type: String,
+			default: '',
 		},
 		variant: {
 			type: String,
@@ -90,10 +104,13 @@
 	const variants = useVariants()
 
 	const buttonClass = computed(() => {
-		const defaultBtn =
-			'focus:outline-none focus-visible:outline-0 disabled:opacity-50 disabled:pointer-events-none flex-shrink-0 transition duration-400 ease-in-out px-16 py-8'
+		const defaultBtn = `focus:outline-none focus-visible:outline-0 disabled:opacity-50 disabled:pointer-events-none flex-shrink-0 transition duration-400 ease-in-out ${
+			props.radius === 'full' ? 'p-x-8 p-y-8' : 'p-x-16 p-y-8'
+		}`
 
-		const isBlock = props.block ? 'w-full flex justify-center items-center' : 'inline-flex items-center'
+		const isBlock = props.block
+			? 'w-full flex justify-center items-center'
+			: 'inline-flex items-center justify-center'
 
 		const style = props.customColor ? props.customColor : variants[props.variant][props.color]
 
@@ -150,13 +167,28 @@
 </script>
 
 <template>
-	<component :is="to ? NuxtLink : 'button'" :aria-label="ariaLabel" :class="buttonClass" v-bind="buttonProps">
-		<Icon v-if="displayIcon.left" :name="loading ? loadingIcon : icon" class="flex-shrink-0" aria-hidden="true" />
+	<component
+		:is="to ? NuxtLink : 'button'"
+		:aria-label="ariaLabel"
+		:class="[buttonClass, additionalClass]"
+		v-bind="buttonProps"
+	>
+		<Icon
+			v-if="displayIcon.left"
+			:name="loading ? loadingIcon : icon"
+			:class="['flex-shrink-0', iconRotation, iconSize]"
+			aria-hidden="true"
+		/>
 		<slot>
 			<span v-if="label" :class="[truncate ? 'line-clamp-1 break-all text-left' : '']">
 				{{ label }}
 			</span>
 		</slot>
-		<Icon v-if="displayIcon.right" :name="loading ? loadingIcon : icon" class="flex-shrink-0" aria-hidden="true" />
+		<Icon
+			v-if="displayIcon.right"
+			:name="loading ? loadingIcon : icon"
+			:class="['flex-shrink-0', iconRotation, iconSize]"
+			aria-hidden="true"
+		/>
 	</component>
 </template>
