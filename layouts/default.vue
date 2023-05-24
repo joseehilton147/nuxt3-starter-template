@@ -21,6 +21,10 @@
 			title: 'Input radio',
 			link: '/docs/radio',
 		},
+		{
+			title: 'Input',
+			link: '/docs/input',
+		},
 	])
 
 	function setCurrentItem(index) {
