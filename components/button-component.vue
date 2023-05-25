@@ -97,7 +97,7 @@
 			type: String,
 			default: 'primary',
 			validator: value =>
-				['primary', 'secondary', 'purple', 'red', 'green', 'yellow', 'gray', 'cyan', 'blue'].includes(value),
+				['primary', 'secondary', 'red', 'green', 'yellow', 'gray', 'cyan', 'blue'].includes(value),
 		},
 	})
 

@@ -29,6 +29,10 @@
 			title: 'Checkbox',
 			link: '/docs/checkbox',
 		},
+		{
+			title: 'Select',
+			link: '/docs/select',
+		},
 	])
 
 	function setCurrentItem(index) {

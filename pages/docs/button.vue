@@ -2,6 +2,11 @@
 	useHead({
 		title: 'Botões',
 	})
+
+	const selectedColor = ref('primary')
+	const selectedVariant = ref('solid')
+
+	const config = useAppConfig()
 </script>
 
 <template>
@@ -13,13 +18,14 @@
 				<code>variant</code>.
 			</p>
 		</template>
+		<forms-select-component
+			v-model="selectedVariant"
+			name="selectedVariant"
+			:options="config.ui.button.variants"
+			label="variant"
+		/>
 		<div class="m-t-32 flex gap-16">
-			<button-component>solid</button-component>
-			<button-component variant="outline">outline</button-component>
-			<button-component variant="soft">soft</button-component>
-			<button-component variant="ghost">ghost</button-component>
-			<button-component variant="link">link</button-component>
-			<button-component variant="icon">icon</button-component>
+			<button-component :variant="selectedVariant" :label="selectedVariant" />
 		</div>
 	</card-component>
 
@@ -28,87 +34,15 @@
 			<h1 class="text-2xl">Cores</h1>
 			<p class="m-y-12">Existem algumas cores pré definidas, você pode alterar pelo prop <code>color</code>.</p>
 		</template>
+		<forms-select-component v-model="selectedColor" name="selectedColor" :options="config.ui.button.colors" />
 		<div class="m-t-32 flex flex-col">
 			<div class="flex items-center gap-16">
-				<button-component color="primary">solid</button-component>
-				<button-component variant="outline" color="primary">outline</button-component>
-				<button-component variant="soft" color="primary">soft</button-component>
-				<button-component variant="ghost" color="primary">ghost</button-component>
-				<button-component variant="link" color="primary">link</button-component>
-				<button-component variant="icon" color="primary">icon</button-component>
-				<code>color="primary"</code>
-			</div>
-			<div class="m-t-16 flex items-center gap-16">
-				<button-component color="secondary">solid</button-component>
-				<button-component variant="outline" color="secondary">outline</button-component>
-				<button-component variant="soft" color="secondary">soft</button-component>
-				<button-component variant="ghost" color="secondary">ghost</button-component>
-				<button-component variant="link" color="secondary">link</button-component>
-				<button-component variant="icon" color="secondary">icon</button-component>
-				<code>color="secondary"</code>
-			</div>
-			<div class="m-t-16 flex items-center gap-16">
-				<button-component color="purple">solid</button-component>
-				<button-component variant="outline" color="purple">outline</button-component>
-				<button-component variant="soft" color="purple">soft</button-component>
-				<button-component variant="ghost" color="purple">ghost</button-component>
-				<button-component variant="link" color="purple">link</button-component>
-				<button-component variant="icon" color="purple">icon</button-component>
-				<code>color="purple"</code>
-			</div>
-			<div class="m-t-16 flex items-center gap-16">
-				<button-component color="red">solid</button-component>
-				<button-component variant="outline" color="red">outline</button-component>
-				<button-component variant="soft" color="red">soft</button-component>
-				<button-component variant="ghost" color="red">ghost</button-component>
-				<button-component variant="link" color="red">link</button-component>
-				<button-component variant="icon" color="red">icon</button-component>
-				<code>color="red"</code>
-			</div>
-			<div class="m-t-16 flex items-center gap-16">
-				<button-component color="green">solid</button-component>
-				<button-component variant="outline" color="green">outline</button-component>
-				<button-component variant="soft" color="green">soft</button-component>
-				<button-component variant="ghost" color="green">ghost</button-component>
-				<button-component variant="link" color="green">link</button-component>
-				<button-component variant="icon" color="green">icon</button-component>
-				<code>color="green"</code>
-			</div>
-			<div class="m-t-16 flex items-center gap-16">
-				<button-component color="gray">solid</button-component>
-				<button-component variant="outline" color="gray">outline</button-component>
-				<button-component variant="soft" color="gray">soft</button-component>
-				<button-component variant="ghost" color="gray">ghost</button-component>
-				<button-component variant="link" color="gray">link</button-component>
-				<button-component variant="icon" color="gray">icon</button-component>
-				<code>color="gray"</code>
-			</div>
-			<div class="m-t-16 flex items-center gap-16">
-				<button-component color="yellow">solid</button-component>
-				<button-component variant="outline" color="yellow">outline</button-component>
-				<button-component variant="soft" color="yellow">soft</button-component>
-				<button-component variant="ghost" color="yellow">ghost</button-component>
-				<button-component variant="link" color="yellow">link</button-component>
-				<button-component variant="icon" color="yellow">icon</button-component>
-				<code>color="yellow"</code>
-			</div>
-			<div class="m-t-16 flex items-center gap-16">
-				<button-component color="cyan">solid</button-component>
-				<button-component variant="outline" color="cyan">outline</button-component>
-				<button-component variant="soft" color="cyan">soft</button-component>
-				<button-component variant="ghost" color="cyan">ghost</button-component>
-				<button-component variant="link" color="cyan">link</button-component>
-				<button-component variant="icon" color="cyan">icon</button-component>
-				<code>color="cyan"</code>
-			</div>
-			<div class="m-t-16 flex items-center gap-16">
-				<button-component color="blue">solid</button-component>
-				<button-component variant="outline" color="blue">outline</button-component>
-				<button-component variant="soft" color="blue">soft</button-component>
-				<button-component variant="ghost" color="blue">ghost</button-component>
-				<button-component variant="link" color="blue">link</button-component>
-				<button-component variant="icon" color="blue">icon</button-component>
-				<code>color="blue"</code>
+				<button-component :color="selectedColor">solid</button-component>
+				<button-component variant="outline" :color="selectedColor">outline</button-component>
+				<button-component variant="soft" :color="selectedColor">soft</button-component>
+				<button-component variant="ghost" :color="selectedColor">ghost</button-component>
+				<button-component variant="link" :color="selectedColor">link</button-component>
+				<button-component variant="icon" :color="selectedColor">icon</button-component>
 			</div>
 		</div>
 	</card-component>
